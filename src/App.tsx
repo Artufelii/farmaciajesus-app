@@ -1,8 +1,8 @@
-import { Login } from "./screens";
+import { MainRouter } from "./routers";
 
 function App() {
   return(
-    <Login />
+    <MainRouter />
   )
 }
 

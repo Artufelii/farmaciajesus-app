@@ -7,6 +7,7 @@ mod pacientes;
 mod consultas;
 
 use crate::pacientes::*;
+use crate::consultas::*;
 
 fn main() {
     tauri::Builder::default()
@@ -15,7 +16,12 @@ fn main() {
             get_paciente,
             create_paciente,
             update_paciente,
-            delete_paciente
+            delete_paciente,
+            fetch_consultas, 
+            get_consulta,
+            create_consulta,
+            update_consulta,
+            delete_consulta
         ])
         .run(tauri::generate_context!())
         .expect("error while running tauri application");
