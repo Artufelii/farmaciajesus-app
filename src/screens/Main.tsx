@@ -39,33 +39,35 @@ export function Main(): ReactElement {
 
   return(
     <Layout>
-      <form>
-        <label htmlFor="consulta">Consulta Médica</label>
-        <input 
-          type="radio" 
-          name="tipo" 
-          id="consulta" 
-          value="Consulta Médica" 
-          checked={inputValue === "Consulta Médica"}
-          onChange={selectType}
-        />
-        <label htmlFor="certificado">Certificado Médico</label>
-        <input 
-          type="radio" 
-          name="tipo" 
-          id="certificado" 
-          value="Certificado Médico" 
-          checked={inputValue === "Certificado Médico"} 
-          onChange={selectType}
-        />
-      </form>
-      <div ref={turnoRef}>
-        <p>{inputValue}</p>
-        <p>Turno:</p>
-        <h1>{turno}</h1>
-        <div>{new Date().toLocaleString()}</div>
-      </div>
-      <button onClick={imprimirTurno}>Imprimir turno</button>
+      <>
+        <form>
+          <label htmlFor="consulta">Consulta Médica</label>
+          <input 
+            type="radio" 
+            name="tipo" 
+            id="consulta" 
+            value="Consulta Médica" 
+            checked={inputValue === "Consulta Médica"}
+            onChange={selectType}
+          />
+          <label htmlFor="certificado">Certificado Médico</label>
+          <input 
+            type="radio" 
+            name="tipo" 
+            id="certificado" 
+            value="Certificado Médico" 
+            checked={inputValue === "Certificado Médico"} 
+            onChange={selectType}
+          />
+        </form>
+        <div ref={turnoRef}>
+          <p>{inputValue}</p>
+          <p>Turno:</p>
+          <h1>{turno}</h1>
+          <div>{new Date().toLocaleString()}</div>
+        </div>
+        <button onClick={imprimirTurno}>Imprimir turno</button>
+      </>
     </Layout>
   ) 
 }
