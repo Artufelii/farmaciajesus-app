@@ -1,5 +1,5 @@
 import type { ReactElement } from "react"
-//import '../styles/Layout.css'
+import '../css/Layout.css'
 import { Header } from "./Header"
 
 type Props = {

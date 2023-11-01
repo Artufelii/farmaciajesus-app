@@ -1,6 +1,7 @@
 import { useRef, useState, type ReactElement, ChangeEvent, useEffect } from "react"
 import { useReactToPrint} from "react-to-print"
 import { Layout } from "../components"
+import '../css/Main.css'
 
 export function Main(): ReactElement {
   const [turno, setTurno] = useState<number>(1)
@@ -16,11 +17,11 @@ export function Main(): ReactElement {
   }
 
   const imprimirTurno = () => {
+    print()
     const currentTurn = turno + 1
     setTurno(currentTurn)
     localStorage.setItem('turno', currentTurn.toString())
     localStorage.setItem('fecha', new Date().toLocaleDateString())
-    print()
   }
 
   useEffect(() => {
@@ -39,8 +40,8 @@ export function Main(): ReactElement {
 
   return(
     <Layout>
-      <>
-        <form>
+      <div className="main">
+        <div className="main__select-type">
           <label htmlFor="consulta">Consulta Médica</label>
           <input 
             type="radio" 
@@ -59,15 +60,15 @@ export function Main(): ReactElement {
             checked={inputValue === "Certificado Médico"} 
             onChange={selectType}
           />
-        </form>
-        <div ref={turnoRef}>
+        </div>
+        <div ref={turnoRef} className="main__turno">
           <p>{inputValue}</p>
           <p>Turno:</p>
           <h1>{turno}</h1>
           <div>{new Date().toLocaleString()}</div>
         </div>
         <button onClick={imprimirTurno}>Imprimir turno</button>
-      </>
+      </div>
     </Layout>
   ) 
 }
